@@ -6,6 +6,8 @@
 
 The `EDA_Financial_News.ipynb` notebook performs an exploratory data analysis on a dataset of financial news headlines. This analysis aims to uncover insights related to publication trends, descriptive statistics, and keyword identification within the headlines.
 
+The `Quantitative_Analysis.ipynb` notebook loads historical stock data (e.g., for Apple Inc.), computes technical indicators such as Simple Moving Averages (SMA), Relative Strength Index (RSI), and MACD using TA-Lib, retrieves financial metrics via yfinance, and visualizes price trends and moving averages.
+
 ### Key Steps in the Analysis
 
 1. **Dataset Loading**:
@@ -25,11 +27,46 @@ The `EDA_Financial_News.ipynb` notebook performs an exploratory data analysis on
    - The frequency of article publications over time is analyzed and visualized, helping to identify trends and patterns in the data.
 
 5. **Publisher Analysis**:
+
    - The contributions of various publishers to the dataset are examined, displaying the number of articles published by each publisher in a bar chart.
 
-### Conclusion
+6. **Loads historical stock price data from CSV**
 
-The notebook effectively demonstrates various exploratory data analysis techniques and provides visualizations that help interpret the dataset. Users can gain insights into the financial news landscape through the analysis presented in this notebook.
+7. **Calculates**
+
+20-day and 50-day Simple Moving Averages (SMA)
+
+14-day Relative Strength Index (RSI)
+
+MACD and MACD Signal line
+
+8. **Fetches company financials using yfinance**
+
+9. **Plots closing price alongside moving averages**
+
+10. **Handles common data loading errors gracefully**
+
+## Requirements
+
+Python 3.7+
+
+pandas
+
+numpy
+
+matplotlib
+
+yfinance
+
+TA-Lib
+
+Install dependencies with:
+
+pip install pandas numpy matplotlib yfinance TA-Lib
+
+## Usage
+
+Place your historical stock data CSV (e.g., AAPL_historical_data.csv) in the ../data/yfinance_data/ directory.
 
 ### Clone the Repository
 
