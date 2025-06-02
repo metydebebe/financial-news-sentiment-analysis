@@ -1,54 +1,55 @@
 # Predicting Price Moves with News Sentiment
 
-## Exploratory Data Analysis (EDA) of Financial News Headlines
+## Exploratory Data Analysis (EDA) of Financial News Headlines and Correlation with Stock Movements
 
 ### Overview
 
-The `EDA_Financial_News.ipynb` notebook performs an exploratory data analysis on a dataset of financial news headlines. This analysis aims to uncover insights related to publication trends, descriptive statistics, and keyword identification within the headlines.
+This project analyzes the relationship between financial news sentiment and stock price movements. It includes exploratory data analysis on financial news headlines, technical analysis of stock prices, sentiment quantification, and correlation analysis between news sentiment and stock returns.
 
-The `Quantitative_Analysis.ipynb` notebook loads historical stock data (e.g., for Apple Inc.), computes technical indicators such as Simple Moving Averages (SMA), Relative Strength Index (RSI), and MACD using TA-Lib, retrieves financial metrics via yfinance, and visualizes price trends and moving averages.
+The analysis is split across notebooks:
 
-### Key Steps in the Analysis
+EDA_Financial_News.ipynb: Performs exploratory data analysis on financial news headlines, including publication trends, descriptive statistics, keyword extraction, and publisher contributions.
 
-1. **Dataset Loading**:
+Quantitative_Analysis.ipynb: Loads historical stock price data, computes technical indicators (SMA, RSI, MACD) using TA-Lib, fetches company financials via yfinance, and visualizes price trends.
 
-   - The notebook begins by loading the analyst ratings dataset from a CSV file. It includes error handling to manage potential issues such as missing files or empty datasets.
+Correlation_Analysis.ipynb (or integrated in notebooks): Aligns dates between news and stock data, performs sentiment analysis on news headlines, calculates daily stock returns, and computes the correlation between average daily sentiment and stock returns.
 
-2. **Descriptive Statistics**:
+Key Steps in the Analysis
+Dataset Loading
+Load financial news headlines and historical stock price data with error handling for missing or malformed files.
 
-   - Basic statistics of the dataset are calculated, including summary statistics, headline lengths, article counts per publisher, and trends over time based on publication dates.
+Data Cleaning and Date Normalization
+Convert and clean date columns in both news and stock datasets. Normalize timestamps by converting datetime columns to date-only format and removing timezone information to ensure proper alignment.
 
-3. **Text Analysis (Topic Modeling)**:
+Sentiment Analysis
+Apply sentiment analysis tools (e.g., nltk, TextBlob) to financial news headlines to assign sentiment scores (positive, negative, neutral).
 
-   - Natural Language Processing (NLP) techniques are utilized to identify keywords in the headlines, providing insights into the most common terms used.
+Aggregation of Sentiment Scores
+Aggregate multiple article sentiment scores per day by computing the average daily sentiment.
 
-4. **Time Series Analysis**:
+Stock Price Analysis
+Calculate daily stock returns as percentage changes in closing prices to represent stock price movements.
 
-   - The frequency of article publications over time is analyzed and visualized, helping to identify trends and patterns in the data.
+Merging Datasets
+Merge the daily aggregated sentiment scores with stock daily returns on the normalized date column.
 
-5. **Publisher Analysis**:
+Correlation Analysis
+Compute the Pearson correlation coefficient between daily average sentiment scores and daily stock returns to quantify the relationship.
 
-   - The contributions of various publishers to the dataset are examined, displaying the number of articles published by each publisher in a bar chart.
+Visualization
+Visualize sentiment versus daily returns using scatter plots with optional regression lines, and time series plots to observe trends over time.
 
-6. **Loads historical stock price data from CSV**
+Additional Analysis and Tools
+Calculation of technical indicators such as 20-day and 50-day Simple Moving Averages (SMA), 14-day Relative Strength Index (RSI), and MACD using TA-Lib.
 
-7. **Calculates**
+Fetching and incorporating company financial metrics via yfinance.
 
-20-day and 50-day Simple Moving Averages (SMA)
+Handling missing data and resampling stock data to daily frequency with forward filling.
 
-14-day Relative Strength Index (RSI)
+Visualization enhancements including transparency in scatter plots and dual-axis time series charts.
 
-MACD and MACD Signal line
-
-8. **Fetches company financials using yfinance**
-
-9. **Plots closing price alongside moving averages**
-
-10. **Handles common data loading errors gracefully**
-
-## Requirements
-
-Python 3.7+
+Requirements
+Python 3.11
 
 pandas
 
@@ -56,30 +57,34 @@ numpy
 
 matplotlib
 
+seaborn
+
 yfinance
 
 TA-Lib
 
+nltk or TextBlob (for sentiment analysis)
+
 Install dependencies with:
 
-pip install pandas numpy matplotlib yfinance TA-Lib
+pip install pandas numpy matplotlib seaborn yfinance TA-Lib nltk textblob
+Usage
+Data Placement
+Place your historical stock data CSV files (e.g., AAPL_historical_data.csv) in the ../data/yfinance_data/ directory.
 
-## Usage
-
-Place your historical stock data CSV (e.g., AAPL_historical_data.csv) in the ../data/yfinance_data/ directory.
-
-### Clone the Repository
+Clone the Repository
 
 git clone https://github.com/metydebebe/financial-news-sentiment-analysis
 cd financial-news-sentiment-analysis
+Set Up Your Environment
 
-### Running the Notebook
+Install dependencies listed in requirements.txt:
 
-To execute the analysis:
+pip install -r requirements.txt
+Run the Notebooks
 
-1. Ensure the dataset is available in the specified directory (data/).
-2. Set Up Your Environment:
-   Install the dependencies listed in `requirements.txt` by running:
-   pip install -r requirements.txt
-3. Open the Notebook: Launch Jupyter Notebook and open EDA_Financial_News.ipynb.
-4. Run the cells
+Open EDA_Financial_News.ipynb to explore news data.
+
+Open Quantitative_Analysis.ipynb to analyze stock data and technical indicators.
+
+Run correlation analysis cells or Correlation_Analysis.ipynb to align dates, perform sentiment aggregation, merge datasets, calculate daily returns, and compute correlation.
