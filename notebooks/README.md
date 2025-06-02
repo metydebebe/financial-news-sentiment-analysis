@@ -14,7 +14,8 @@ Quantitative_Analysis.ipynb: Loads historical stock price data, computes technic
 
 Correlation_Analysis.ipynb (or integrated in notebooks): Aligns dates between news and stock data, performs sentiment analysis on news headlines, calculates daily stock returns, and computes the correlation between average daily sentiment and stock returns.
 
-Key Steps in the Analysis
+### Key Steps in the Analysis
+
 Dataset Loading
 Load financial news headlines and historical stock price data with error handling for missing or malformed files.
 
@@ -39,7 +40,8 @@ Compute the Pearson correlation coefficient between daily average sentiment scor
 Visualization
 Visualize sentiment versus daily returns using scatter plots with optional regression lines, and time series plots to observe trends over time.
 
-Additional Analysis and Tools
+### Additional Analysis and Tools
+
 Calculation of technical indicators such as 20-day and 50-day Simple Moving Averages (SMA), 14-day Relative Strength Index (RSI), and MACD using TA-Lib.
 
 Fetching and incorporating company financial metrics via yfinance.
@@ -48,7 +50,8 @@ Handling missing data and resampling stock data to daily frequency with forward 
 
 Visualization enhancements including transparency in scatter plots and dual-axis time series charts.
 
-Requirements
+### Requirements
+
 Python 3.11
 
 pandas
@@ -65,7 +68,7 @@ TA-Lib
 
 nltk or TextBlob (for sentiment analysis)
 
-Install dependencies with:
+### Install dependencies
 
 pip install pandas numpy matplotlib seaborn yfinance TA-Lib nltk textblob
 Usage
@@ -81,7 +84,8 @@ Set Up Your Environment
 Install dependencies listed in requirements.txt:
 
 pip install -r requirements.txt
-Run the Notebooks
+
+### Run the Notebooks
 
 Open EDA_Financial_News.ipynb to explore news data.
 
